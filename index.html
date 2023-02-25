@@ -69,6 +69,7 @@ body, html {
   border-radius: 0%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/sizzling pork sisig.jpg");
   height: 90%;
+  width: 100%;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
@@ -104,13 +105,14 @@ body {
   margin: auto;
 }
 
-h1 {
-  font-size: 50px;
-  word-break: break-all;
-}
 
 .row {
   margin: 8px -16px;
+}
+
+.container{
+  display: table;
+  width: 100%;
 }
 
 /* Add padding BETWEEN each column (if you want) */
@@ -121,15 +123,14 @@ h1 {
 
 /* Create four equal columns that floats next to each other */
 .column {
+  display: table;
   float: left;
   width: 50%;
 }
 
 /* Clear floats after rows */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+  display: table-cell;
 }
 
 /* Content */
@@ -137,6 +138,23 @@ h1 {
   background-color: white;
   padding: 10px;
 }
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
+
 
 /* Create a top navigation bar with a black background color  */
 .topnav {
@@ -184,11 +202,6 @@ label.logo{
   font-size: 50px;
   color: white;
   padding:0px;
-}
-
-a.split, a:hover{
-  background: #222;
-  color: white;
 }
 
 .types{
@@ -240,30 +253,58 @@ a.split, a:hover{
   }
 }
 
+.btn{
+  position: relative;;
+}
+
+.sclogo{
+  animation: shake 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 
 </style>
 <body>
-  <div id="f-page" class="topnav">
-    &nbsp; &nbsp;<img src="icon/android-chrome-192x192.png"width="4%" style="padding:3px">
-    <label class="logo">Korokan</label>
-      <a class="split" style="color: white; font-family:'Trebuchet MS'; font-size: 15px; background-color: #222;"><i class="bi bi-telephone"></i>&nbsp;Contact Us: (02)8776-0811</a>
-    <a href="#Dif_types" class="split" style="font-family:'Trebuchet MS'">What are you looking for?</a>
-  </div>
   
+  <div id="f-page" class="topnav">
+    &nbsp; &nbsp;<img class="sclogo" src="icon/android-chrome-192x192.png"width="4%" style="padding:3px">
+    <label class="logo">Korokan</label>
+    <a href="#Dif_types" class="split" style="font-family:'Trebuchet MS'; margin-right: 30px;">What are you looking for?</a>
+  </div>
+    
 <div class="hero-image">
   <div class="hero-text">
-      <font-face style="font-family: ChocoChici-2OMyW; font-size: 120px;"><i class="bi bi-egg-fried" style="font-size: 120px;"></i>Sisig Corner</font-face>
+    <font-face style="font-family: ChocoChici-2OMyW; font-size: 120px;"><i class="bi bi-egg-fried" style="font-size: 120px;"></i>Sisig Corner</font-face>
       <p style="font-family: 'Trebuchet MS'; font-size: 20px;">It's my favorite, so why not?</p>
-      <a href="https://www.youtube.com/watch?v=a3Z7zEc7AXQ" target="_blank"><button type="button" class="btn btn-outline-warning btn-lg" style="font-family: 'Trebuchet MS'; font-size:30px"><b>Order Now!</b></button></a>
+      <a href="#order_form"><button type="button" class="btn btn-outline-warning btn-lg" style="font-family: 'Trebuchet MS'; font-size:30px; bottom: 20px"><b>Order Now!</b></button></a>
   </div>
 </div> 
+
+<p style="text-align: center; font-size: 50px; font-family: 'Trebuchet MS'"> </p>
+
+<div id="f-page" class="topnav" style="height: 125px; border-radius: 50px;">
+  <p style="text-align: center; font-size: 50px; font-family: 'Trebuchet MS'"> </p>
+  <p class="types" id="Dif_types"> </p>
+  <p class="types" style="color:#eed202; vertical-align: top;">Different Types of <span class="sisig"><i class="bi bi-egg-fried" style="font-size: 50px; color:#eed202;"></i>Sisig</span></p>
+</div>
 </body>
 </head>
 
 <body>
-  <p style="text-align: center; font-size: 50px; font-family: 'Trebuchet MS'"> </p>
-  <p class="types" id="Dif_types"> </p>
-  <p class="types" id="Dif_types">Different Types of <span class="sisig"><i class="bi bi-egg-fried" style="font-size: 50px"></i>Sisig</span></p>
+  
     <hr>
     <!-- Portfolio Gallery Grid -->
     <div class="container">
@@ -273,7 +314,7 @@ a.split, a:hover{
             <a href="https://www.crownasia.com.ph/news-and-blogs/lifestyle-blogs/selected/all-hail-the-original-pampanga-sisig" target="_blank"><img src="img/sisig kapampangan.jpg" alt="Sisig Kapampangan" style="width:100%"></a>
             <b><p style="font-size: 30px; text-align:center">Sisig Kapampangan</p></b>
             <p style="font-style: italic; font-size: 13px ;text-align: center; line-height: 0px;">(Click the image to see more details.)</p>
-            <p class="text-align: center" style="font-family:'Trebuchet MS'">Authentic Sisig Kapampangan is simple. The cooked meat from chopped pig ears and snout is mixed with a sour relish, then pig brains and chicken liver seasoned with some soy sauce, salt and pepper, calamansi juice, onions, and chili peppers. It is served on a serving plate that is sizzling.</p>
+            <p class="text-align: center" style="font-family:'Trebuchet MS'">Authentic Sisig Kapampangan is simple. The cooked meat from chopped pig ears and snout is mixed with a sour relish, then pig brains and chicken liver seasoned with some soy sauce, salt and pepper, calamansi juice, onions, and chili peppers. It is served on a serving plate that is sizzling. And it may come as a surprise to some, but the original Pork sisig did not have raw egg or mayonnaise.</p>
           </div>
         </div>
         <div class="column">
@@ -281,7 +322,7 @@ a.split, a:hover{
             <a href="https://panlasangpinoy.com/sizzling-tuna-sisig/" target="_blank"><img src="img/tuna sisig.jpg" alt="Tuna Sisig" style="width:100%"></a>
             <b><p style="font-size: 30px; text-align:center">Tuna Sisig</p></b>
             <p style="font-style: italic; font-size: 13px ; text-align: center; line-height: 0px;">(Click the image to see more details.)</p>
-            <p class="text-align: center" style="font-family:'Trebuchet MS'">Sizzling Tuna Sisig is a version of the popular Filipino sisig wherein tuna steaks sliced into small cubes are used instead of minced pork. This dish is served over a hot metal plate (also referred to as sizzling plate) and topped with crushed chicharon. It is served with chili pepper and lime or calamansi. This dish is can be consumed as a main dish with rice. It an also an ideal appetizer or pulutan.</p>  
+            <p class="text-align: center" style="font-family:'Trebuchet MS'">Sizzling Tuna Sisig is a version of the popular Filipino sisig wherein tuna steaks sliced into small cubes are used instead of minced pork. This dish is served over a hot metal plate (also referred to as sizzling plate) and topped with crushed chicharon. It is served with chili pepper and lime or calamansi.</p>  
           </div>
         </div>
         <div class="column">
@@ -289,7 +330,7 @@ a.split, a:hover{
             <a href="https://www.kawalingpinoy.com/bangus-sisig/" target="_blank"><img src="img/bangus sisig.jpg" alt="Bangus Sisig" style="width:100%"></a>
             <b><p style="font-size: 30px; text-align:center">Crispy Bangus Sisig</p></b>
             <p style="font-style: italic; font-size: 13px ; text-align: center; line-height: 0px;">(Click the image to see more details.)</p>
-            <p class="text-align: center" style="font-family:'Trebuchet MS'">Bangus Sisig is a Filipino dish made with milkfish, chopped onions, bell, and chili peppers. The fish is first fried until crispy, deboned, and flaked, and then bathe in fresh calamansi juice and seasoning sauce for a medley of tangy and savory tastes. Like its pork counterpart, fish sisig delivers fantastic flavor and makes a great main dish or appetizer. But unlike the pork face traditionally used in this Kapampangan delicacy, bangus is quicker and easier to prepare. Plus, it's more budget-friendly and healthier to boot!</p>
+            <p class="text-align: center" style="font-family:'Trebuchet MS'">Bangus Sisig is a Filipino dish made with milkfish, chopped onions, bell, and chili peppers. The fish is first fried until crispy, deboned, and flaked, and then bathe in fresh calamansi juice and seasoning sauce for a medley of tangy and savory tastes.</p>
           </div>
         </div>
         <div class="column">
@@ -307,8 +348,132 @@ a.split, a:hover{
         </button>
       </div>
     </div>
-    <p>&nbsp;&nbsp;<i class="bi bi-c-circle"></i>&nbsp;No Copyright hehe. SUBMITTED BY: PAULA JOANNA DE JESUS | BSIT-2B</p>
-    <!-- END MAIN -->
+    
+</body>
+
+<style>
+
+
+body, html {
+  height: 100%;
+}
+.bg-img {
+  /* The image used */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/dinakdakan-crispy-pata-main.jpg");
+
+  /* Control the height of the image */
+  min-height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 0;
+}
+
+.container_form {
+  position: relative;
+  right: 0;
+  margin: 0 auto;
+  max-width: 600px; 
+  padding: 30px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn_order {
+  background-color:#eed202;
+  border-radius: 50px;
+  color: #222;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn_order:hover {
+  opacity: 5;
+}
+
+.container_contacts{
+  position: absolute;
+  bottom: 130px;
+  left: 650px;
+}
+
+/* Place the navbar at the bottom of the page, and make it stick */
+.botnavbar {
+  background-color: #222;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0;
+  height: 75px;
+}
+
+.botnavbar ul {
+  text-align: center;
+}
+
+.botnavbar li {
+  display: inline-block;
+  line-height: 75px;
+}
+
+</style>
+<body>
+    <div class="bg-img" id="order_form">
+      <div class="container">
+        <div class="row">
+          <form action="/action_page.php" class="container_form">
+            <h1 style="text-align: center; font-family: ChocoChici-2OMyW; font-size: 80px; ">Order Here!</h1>
+    
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" required>
+    
+        <label for="order"><b>Order</b></label>
+        <input type="text" placeholder="Enter Order" name="order" required>
+
+        <label for="so"><b>Special Order (SO)</b></label>
+        <input type="text" placeholder="Write your special orders here." name="so" required>
+    
+        <label for="add"><b>Address</b></label>
+        <input type="text" placeholder="Enter Address" name="address" required>
+
+        <button type="submit" class="btn_order">ORDER</button>
+          </form>
+          </div>
+        </div>
+
+
+
+
+        <div class="botnavbar">
+          <ul>
+            <i><img src="img/egg-hatch.gif" style="width: 40px"></i>
+            <li style="color: white; font-family:'Trebuchet MS'; font-size: 15px">&nbsp;&nbsp;<i class="bi bi-telephone"></i><b>&nbsp;(02)8776-0811</li>
+            <li style="color: white; font-family:'Trebuchet MS'; font-size: 15px">&nbsp;&nbsp;<i class="bi bi-envelope"></i><b>&nbsp;</b> sisigcorner.dontemailthispls@gmail.com</li>
+            <li style="color: white; font-family:'Trebuchet MS'; font-size: 15px">&nbsp;&nbsp;<i class="bi bi-geo-alt"></i><b>&nbsp;</b> #3 Solar System St., Milky Way Galaxy, Terra#003</li>
+          </ul>
+        </div>
+
+      </div>
 
 </body>
 </html>
