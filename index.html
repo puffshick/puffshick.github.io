@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
   <link rel="manifest" href="icon/site.webmanifest">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 
   <style>
 
@@ -41,9 +41,14 @@
   src: url(fonts/ChocoChici-2OMyW.ttf);
 }
 
+@font-face{
+  font-family: Jelligun;
+  src: url(fonts/Jelligun-Regular.ttf);
+}
+
 body {
   overflow: overlay;
-  background-image: linear-gradient(rgb(250, 222, 36, 0.6),rgb(237, 148, 16, 0.6)) ,url(img/yellowBG.jpg);
+  background-image: url(img/plainbg.png);
   height: 200%;
   background-position: center;
   background-size: cover;
@@ -67,8 +72,8 @@ body, html {
 /* The hero image */
 .hero-image {
   border-radius: 0%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/sizzling pork sisig.jpg");
-  height: 90%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url("img/sisig.gif");
+  height: 100%;
   width: 100%;
 
   /* Position and center the image to scale nicely on all screens */
@@ -82,11 +87,11 @@ body, html {
 .hero-text {
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 75%;
   left: 50%;
-  line-height:70px;
   transform: translate(-50%, -50%);
   color: white;
+  height: 650px;
 }
 
 * {
@@ -107,30 +112,12 @@ body {
 
 
 .row {
-  margin: 8px -16px;
+  margin: 7px;
 }
 
 .container{
   display: table;
   width: 100%;
-}
-
-/* Add padding BETWEEN each column (if you want) */
-.row,
-.row > .column {
-  padding: 8px;
-}
-
-/* Create four equal columns that floats next to each other */
-.column {
-  display: table;
-  float: left;
-  width: 50%;
-}
-
-/* Clear floats after rows */
-.row:after {
-  display: table-cell;
 }
 
 /* Content */
@@ -153,48 +140,6 @@ body {
   }
 }
 
-
-
-
-/* Create a top navigation bar with a black background color  */
-.topnav {
-  border-radius: 0%;
-  background-color: #222;
-  height: 80px;
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  line-height: 55px;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  margin-left: 40px;
-}
-
-/* Create a right-aligned (split) link inside the navigation bar */
-.topnav a.split {
-  float: right;
-  background-color: #eed202;
-  color: #222;
-}
-
-.button_top{
-  font-family: 'Trebuchet MS';
-  margin-left: auto;
-  text-align: center;
-  border: #eed202;
-  width: 10%;
-  background-color: #eed202;
-  border-radius: 16px;
-}
-
-.button_top:hover{
-  background-color: #eed202;
-}
 
 label.logo{
   font-family: ChocoChici-2OMyW;
@@ -223,133 +168,271 @@ label.logo{
     margin:auto;
   }
 
-@media (max-width: 768px){
-  label.logo{
-    display: none;
-  }
-  .topnav {
-    height: 50px;
-  }
-
-  .topnav a.split{
-  float: right;
-  line-height: 15px;
-  background-color: #eed202;
-  color: #222;
-  }
-  .types{
-    text-align: center;
-    font-size: 35px;
-    font-weight: bold;
-    font-family: 'Trebuchet MS'
-  }
-  span.sisig{
-    font-weight: normal;  
-    font-size: 50px;
-  }
-  .column {
-  float: left;
-  width: 100%;
-  }
-}
-
 .btn{
   position: relative;;
 }
 
-.sclogo{
-  animation: shake 5s;
-  animation-iteration-count: infinite;
+
+/* Create a top navigation bar with a black background color  */
+.topnav_trans {
+  overflow: hidden;
+  border-radius: 0; 
 }
 
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+/* Style the links inside the navigation bar */
+.topnav_trans a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  line-height: 65px;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  
 }
+
+.topnav_trans label {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav_trans a:hover {
+  color:#eed202; 
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav_trans a.split {
+  float: right;
+  color: white;
+  text-align: center;
+  line-height: 65px;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.topnav_trans a.split:hover{
+  color: #eed202;
+}
+
+.hero-text p.page_desc{
+  color:white;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+.card {
+
+  max-width: 350px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  display: inline-block;
+  padding: 10px;
+  height: 550px;
+  border: dotted;
+  border-color: #524a0e;
+  background-size: 100px;
+  background-image: url(img/plainbg.png);
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.explore{
+  text-align: center;
+  margin: auto;
+  font-size: 100px;
+  font-family: Jelligun;
+  font-weight: bold;
+  color:#524a0e;
+  padding-bottom: 25px;
+}
+
+.sisig_img{
+  animation: pulse 2s linear infinite;
+}
+
+@-webkit-keyframes pulse {
+0% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+50% {
+   -webkit-transform: scale(0.8);
+   transform: scale(0.8);
+}
+100% {
+    -webkit-transform: scale(1);
+   transform: scale(1);
+}
+}
+
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
 
 </style>
 <body>
   
-  <div id="f-page" class="topnav">
-    &nbsp; &nbsp;<img class="sclogo" src="icon/android-chrome-192x192.png"width="4%" style="padding:3px">
-    <label class="logo">Korokan</label>
-    <a href="#Dif_types" class="split" style="font-family:'Trebuchet MS'; margin-right: 30px;">What are you looking for?</a>
-  </div>
-    
 <div class="hero-image">
+
+  <div class="topnav_trans">
+    <label><font-face style="font-family: ChocoChici-2OMyW; font-size: 40px; color: white"><i class="bi bi-egg-fried" style="font-size: 40px; color:white"></i>Sisig Corner</font-face></label>
+    <a href="#Dif_types">Explore</a>
+    <a href="#contact">Contact</a>
+    <a class="split"><span onclick="openNav()" class="split">About Us</span></a>  
+  </div>
+
   <div class="hero-text">
-    <font-face style="font-family: ChocoChici-2OMyW; font-size: 120px;"><i class="bi bi-egg-fried" style="font-size: 120px;"></i>Sisig Corner</font-face>
-      <p style="font-family: 'Trebuchet MS'; font-size: 20px;">It's my favorite, so why not?</p>
-      <a href="#order_form"><button type="button" class="btn btn-outline-warning btn-lg" style="font-family: 'Trebuchet MS'; font-size:30px; bottom: 20px"><b>Order Now!</b></button></a>
+      <p class="page_desc" style="font-family: 'Trebuchet MS'; font-size: 15px;"><span style="text-align: center; font-size: 80px; font-family: Trebuchet MS; color:#ffffff; line-height: 60px; font-weight: bold">Introducing Korokan's best!</span>
+        <br> <br> A hidden jewel that only PLMUN students can walk into. <br>Walk into this vast world of different cuisine homed to numerous food and delicacies.<br>Welcome to Sisig Corner! <br> <br>
+          <a href="#order_form"><button type="button" class="btn btn-outline-warning btn-lg" style="font-family: 'Trebuchet MS'; font-size:30px;"><b>Order Now!</b></button></a></p>
+      
   </div>
 </div> 
-
-<p style="text-align: center; font-size: 50px; font-family: 'Trebuchet MS'"> </p>
-
-<div id="f-page" class="topnav" style="height: 125px; border-radius: 50px;">
-  <p style="text-align: center; font-size: 50px; font-family: 'Trebuchet MS'"> </p>
-  <p class="types" id="Dif_types"> </p>
-  <p class="types" style="color:#eed202; vertical-align: top;">Different Types of <span class="sisig"><i class="bi bi-egg-fried" style="font-size: 50px; color:#eed202;"></i>Sisig</span></p>
-</div>
 </body>
 </head>
 
 <body>
-  
-    <hr>
-    <!-- Portfolio Gallery Grid -->
-    <div class="container">
-      <div class="row">
-        <div class="column">
-          <div class="content">
-            <a href="https://www.crownasia.com.ph/news-and-blogs/lifestyle-blogs/selected/all-hail-the-original-pampanga-sisig" target="_blank"><img src="img/sisig kapampangan.jpg" alt="Sisig Kapampangan" style="width:100%"></a>
-            <b><p style="font-size: 30px; text-align:center">Sisig Kapampangan</p></b>
-            <p style="font-style: italic; font-size: 13px ;text-align: center; line-height: 0px;">(Click the image to see more details.)</p>
-            <p class="text-align: center" style="font-family:'Trebuchet MS'">Authentic Sisig Kapampangan is simple. The cooked meat from chopped pig ears and snout is mixed with a sour relish, then pig brains and chicken liver seasoned with some soy sauce, salt and pepper, calamansi juice, onions, and chili peppers. It is served on a serving plate that is sizzling. And it may come as a surprise to some, but the original Pork sisig did not have raw egg or mayonnaise.</p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="content">
-            <a href="https://panlasangpinoy.com/sizzling-tuna-sisig/" target="_blank"><img src="img/tuna sisig.jpg" alt="Tuna Sisig" style="width:100%"></a>
-            <b><p style="font-size: 30px; text-align:center">Tuna Sisig</p></b>
-            <p style="font-style: italic; font-size: 13px ; text-align: center; line-height: 0px;">(Click the image to see more details.)</p>
-            <p class="text-align: center" style="font-family:'Trebuchet MS'">Sizzling Tuna Sisig is a version of the popular Filipino sisig wherein tuna steaks sliced into small cubes are used instead of minced pork. This dish is served over a hot metal plate (also referred to as sizzling plate) and topped with crushed chicharon. It is served with chili pepper and lime or calamansi.</p>  
-          </div>
-        </div>
-        <div class="column">
-          <div class="content">
-            <a href="https://www.kawalingpinoy.com/bangus-sisig/" target="_blank"><img src="img/bangus sisig.jpg" alt="Bangus Sisig" style="width:100%"></a>
-            <b><p style="font-size: 30px; text-align:center">Crispy Bangus Sisig</p></b>
-            <p style="font-style: italic; font-size: 13px ; text-align: center; line-height: 0px;">(Click the image to see more details.)</p>
-            <p class="text-align: center" style="font-family:'Trebuchet MS'">Bangus Sisig is a Filipino dish made with milkfish, chopped onions, bell, and chili peppers. The fish is first fried until crispy, deboned, and flaked, and then bathe in fresh calamansi juice and seasoning sauce for a medley of tangy and savory tastes.</p>
-          </div>
-        </div>
-        <div class="column">
-          <div class="content">
-            <a href="https://www.epicurious.com/recipes/food/views/spicy-sizzling-squid-sisig-na-pusit" target="_blank"><img src="img/squid sisig.jpg" alt="Squid Sisig" style="width:100%"></a>
-            <b><p style="font-size: 30px; text-align:center">Squid Sisig</p></b>
-            <p style="font-style: italic; font-size: 13px ;text-align: center; line-height: 0px;">(Click the image to see more details.)</p>
-            <p class="text-align: center" style="font-family:'Trebuchet MS'">The Squid Sisig has all the hallmarks of its piggy progenitor, such as chili spice, citrus sourness and plenty of aromatic shallots and onions. Whereas the pork version features a sunny-side-up egg and crushed pork cracklings, however, this squid iteration incorporates salmon caviar and crushed prawn crackers.</p>
-          </div>
-        </div>
+  <div class="explore" id="sisig_types">
+    <label id="Dif_types"><img src="img/pngegg (1).png" width="10%" class="sisig_img"> Different Types of Sisig <img src="img/pngegg (1).png" width="10%" class="sisig_img"></label>
+  </div>
 
-        
-        <button class="button_top">
-          <a href="#f-page" style="font-size: 50px; color:#222"><i class="bi bi-arrow-up-circle-fill"></i></a>
-        </button>
+  <div class="container_cards">
+    <div class="column">
+      <div class="row">
+        <div class="card">
+          <img src="img/dinakdakan-crispy-pata-main.jpg" alt="Sisig Dinakdakan" style="width:100%">
+          <h1>Dinakdakan</h1>
+          <p>Dinakdakan or warek-warek is an Ilocano delicacy made with grilled pork parts such as the face, ears, liver, and tongue. It’s traditionally served as a bar chow or pulutan to go with ice-cold beer but has evolved over the years into a hearty main dish enjoyed with piping-hot steamed rice.</p>
+          <p><button class="rdmore">Read More</button></p>
+        </div>
+  
+        <div class="card">
+          <img src="img/sisig kapampangan.jpg" alt="Sisig Kapampangan" style="width:100%">
+          <h1>Kapampangan</h1>
+          <p>Authentic Sisig Kapampangan is simple. The cooked meat from chopped pig ears and snout is mixed with a sour relish, then pig brains and chicken liver seasoned with some soy sauce, salt and pepper, calamansi juice, onions, and chili peppers. It is served on a serving plate that is sizzling.</p>
+          <p><button class="rdmore">Read More</button></p>
+        </div>
+  
+        <div class="card">
+          <img src="img/tuna sisig.jpg" alt="Tuna Sisig" style="width:100%">
+          <h1>Tuna Sisig</h1>
+          <p>Sizzling Tuna Sisig is a version of the popular Filipino sisig wherein tuna steaks sliced into small cubes are used instead of minced pork. This dish is served over a hot metal plate (also referred to as sizzling plate) and topped with crushed chicharon. It is served with chili pepper and lime or calamansi.</p>
+          <p><button class="rdmore">Read More</button></p>
+        </div>
+  
+        <div class="card">
+          <img src="img/bangus sisig.jpg" alt="Bangus Sisig" style="width:100%">
+          <h1>Bangus Sisig</h1>
+          <p>Bangus Sisig is a Filipino dish made with milkfish, chopped onions, bell, and chili peppers. The fish is first fried until crispy, deboned, and flaked, and then bathe in fresh calamansi juice and seasoning sauce for a medley of tangy and savory tastes.</p>
+          <p><button class="rdmore">Read More</button></p>
+        </div>
       </div>
     </div>
-    
-</body>
+  </div>
+
+  <!-- The overlay -->
+<div id="myNav" class="overlay">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <p>This landing-page is a Web-Technologies 2 activity submitted by DE JESUS, PAULA JOANNA C.
+      <br> The images and information provided in this webpage is from reputable sources from multiple web-blogs and sites. All of which are linked to certain buttons for the images and information credits.
+      <br> However, this website is still undergoing certain changes for design improvement. I hope for your consideration and will certainly appreciate if you come to check up on my webpage from time to time.
+      <br> Any comments and suggestions for improvement will certainly be appreciated.
+    </p>
+  </div>
+
+</div>
+
+<!-- Use any element to open/show the overlay navigation menu -->
+
+
 
 <style>
 
@@ -378,7 +461,8 @@ body, html {
   margin: 0 auto;
   max-width: 600px; 
   padding: 30px;
-  background-color: white;
+  background-image: url(img/bgsisig.png);
+  background-size: 900px;
 }
 
 /* Full-width input fields */
@@ -387,11 +471,12 @@ input[type=text], input[type=password] {
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
-  background: #f1f1f1;
+  background: #ffffff;
+  border: solid;
 }
 
 input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+  background-color: #ffffff;
   outline: none;
 }
 
